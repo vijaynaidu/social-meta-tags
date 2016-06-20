@@ -212,5 +212,15 @@ if(!function_exists('socialMetaTagsPage')){
     });
 }
 
+if(!function_exists('addFaqLinkSocialMeta')){
+    function addFaqLinkSocialMeta ( $links ) {
+        $link = array(
+            '<a href="' . admin_url( 'options-general.php?page=social-meta-tags-faq' ) . '">FAQ/ Help</a>',
+        );
+        return array_merge( $links, $link );
+    }
+
+    add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'addFaqLinkSocialMeta' );
+}
 
 ?>
